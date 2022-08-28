@@ -49,7 +49,7 @@ fn main() {
 				.expect("Failed to copy Git config");
 
 			let string_output: String = String::from_utf8_lossy(&output.stdout).into();
-			let res: Vec<String> = string_output.split('\n').map(|s| s.to_string()).collect();
+			let res: Vec<String> = string_output.lines().map(|s| s.to_string()).collect();
 			for opt in &res {
 				let mut opts = opt.split('=');
 				let key = match opts.next() {
