@@ -31,6 +31,7 @@ fn main() {
 				Some(val) => val.to_string(),
 			};
 
+            // TODO: Implement git init
 			// Command::new("git")
 			//     .arg("init")
 			//     .spawn()
@@ -65,7 +66,9 @@ fn main() {
 					.arg(key)
 					.arg(val)
 					.spawn()
-					.expect("Failed to set config");
+					.expect("Failed to set config")
+                    .wait()
+					.expect("Failed to exit");
 			}
 		}
 	}
